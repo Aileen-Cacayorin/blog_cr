@@ -1,0 +1,24 @@
+<%= render 'layouts/errors', :object => @post %>
+
+<div class="container">
+  <%= form_for [@post], html: { multipart: true } do |f| %>
+    <div class="form-group">
+      <%= f.label :author %>
+      <%= f.text_field :author, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :title%>
+      <%= f.text_field :title, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :body%>
+      <%= f.text_field :body, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :picture%>
+      <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
+
+    <%= f.submit "Add post", class: 'btn btn-primary' %>
+    </div>
+  <% end %>
+</div>

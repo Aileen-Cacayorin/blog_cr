@@ -12,9 +12,9 @@ gem 'bootstrap-sass',       '3.2.0.0'
 gem 'will_paginate'
 gem 'will_paginate-bootstrap'
 gem "font-awesome-rails"
-
+gem 'carrierwave', '0.10.0'
 gem 'devise'
-
+gem 'mini_magick',             '3.8.0'
 
 group :production do
   gem 'puma'

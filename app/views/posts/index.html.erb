@@ -1,10 +1,10 @@
 <% if @posts.any? %>
-<ul>
-  <% @posts.each do |post| %>
-    <%= link_to post_path(post) do %>
-      <%= image_tag post.picture.url(:thumb) %>
-      <%= post.title %>
+  <ul>
+    <% @posts.each do |post| %>
+      <%= link_to post_path(post) do %>
+        <li><%= image_tag post.picture.url(:thumb) %>
+        <%= post.title %></li>
+      <% end %>
     <% end %>
-  <%= end %>
-</ul>
+  </ul>
 <%end  %>

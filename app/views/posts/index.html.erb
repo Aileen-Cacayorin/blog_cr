@@ -4,7 +4,9 @@
       <%= link_to post_path(post) do %>
         <li><%= image_tag post.picture.url(:thumb) %>
         <%= post.title %></li>
+
       <% end %>
+        <%= truncate post.body, length: 160 %> . . . 
     <% end %>
   </ul>
 <%end  %>

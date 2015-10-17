@@ -33,6 +33,7 @@ class PostsController < ApplicationController
     @posts = Post.all
     @post = Post.find(params[:id])
   end
+
   def post_params
     params.require(:post).permit(:author, :title, :body, :picture)
   end

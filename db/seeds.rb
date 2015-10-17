@@ -12,3 +12,8 @@ User.create!(
   password_confirmation: "password",
   admin: true
 )
+
+Tag.create(:name => "Travel")
+Tag.create(:name => "Food")
+Tag.create(:name => "Coding")
+Tag.create(:name => "Gaming")

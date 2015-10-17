@@ -1,12 +1,32 @@
-<% if @posts.any? %>
-  <ul>
-    <% @posts.each do |post| %>
-      <%= link_to post_path(post) do %>
-        <li><%= image_tag post.picture.url(:thumb) %>
-        <%= post.title %></li>
+<div class="container">
+  <div class="col-md-8">
+    <% if @posts.any? %>
+      <ul>
+        <% @posts.each do |post| %>
+          <%= link_to post_path(post) do %>
+            <li><%= image_tag post.picture.url(:thumb) %>
+            <%= post.title %></li>
 
-      <% end %>
-        <%= truncate post.body, length: 160 %> . . . 
+          <% end %>
+            <%= truncate post.body, length: 160 %> . . .
+        <% end %>
+      </ul>
+    <%end  %>
+  </div>
+
+  <div class="col-md-4">
+
+    <% if user_signed_in? && current_user.admin? %>
+        <%= render "/tags/form" %>
     <% end %>
-  </ul>
-<%end  %>
+
+    <% if @tags.any? %>
+      <ul>
+        <% @tags.each do |tag| %>
+          <li> <%= link_to tag.name, tag_path(tag) %> </li>
+        <% end %>
+      </ul>
+    <% end %>
+
+  </div>
+</div>

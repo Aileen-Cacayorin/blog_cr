@@ -4,6 +4,8 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.all
+    @tags = Tag.all
+    @tag = Tag.new
   end
 
   def new
@@ -23,7 +25,7 @@ class PostsController < ApplicationController
   end
 
   def show
-    
+
   end
 
 

@@ -17,7 +17,7 @@ class PostsController < ApplicationController
     @post.user = current_user
     if @post.save
       flash[:success] = "Your post was added"
-      redirect_to posts_path
+      redirect_to post_path(@post)
     else
       flash[:danger] = "Oops, something went wrong and your post wasn't saved"
       redirect_to :back
@@ -28,6 +28,31 @@ class PostsController < ApplicationController
     @tags = @post.tags
 
   end
+
+  def edit
+
+  end
+
+  def update
+    if @post.update(post_params)
+      flash[:success] = "Post change saved"
+      redirect_to post_path(@post)
+    else
+      flash[:danger] = "Nope, nothing has changed."
+      render :edit
+    end
+  end
+
+  def destroy
+    if @post.destroy
+      flash[:success] = "Post deleted."
+      redirect_to posts_path
+    else
+      flash[:danger] = "Post is still there, try again."
+      redirect_to post_path(@post)
+    end
+  end
+
 
 
 

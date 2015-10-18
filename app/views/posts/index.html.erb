@@ -1,32 +1,45 @@
 <div class="container">
-  <div class="col-md-8">
-    <% if @posts.any? %>
-      <ul>
-        <% @posts.each do |post| %>
-          <%= link_to post_path(post) do %>
-            <li><%= image_tag post.picture.url(:thumb) %>
-            <%= post.title %></li>
+  <div class="row">
+    <div class="col-sm-8">
+      <% if @posts.any? %>
+        <h2>Recent Posts:</h2>
+        <ul>
+          <% @posts.each do |post| %>
+            <div class="row post-tile">
 
+                <div class="col-sm-3 post-image">
+                  <li><%= image_tag post.picture.url(:thumb) %>
+                </div>
+
+                <div class="col-m-9 post-text">
+                    <%= link_to post_path(post) do %>
+                    <h3><%= post.title %></h3>
+                  <%= truncate post.body, length: 160 %></li>
+                  <% end %>
+                </div>
+            </div>
           <% end %>
-            <%= truncate post.body, length: 160 %> . . .
-        <% end %>
-      </ul>
-    <%end  %>
-  </div>
+        </ul>
+      <% else %>
+      <h3>No posts yet!</h3>
+      <%end  %>
+    </div>
 
-  <div class="col-md-4">
+    <div class="col-md-4">
 
-    <% if user_signed_in? && current_user.admin? %>
-        <%= render "/tags/form" %>
-    <% end %>
+      <% if user_signed_in? && current_user.admin? %>
+          <%= render "/tags/form" %>
+      <% end %>
 
-    <% if @tags.any? %>
-      <ul>
-        <% @tags.each do |tag| %>
-          <li> <%= link_to tag.name, tag_path(tag) %> </li>
-        <% end %>
-      </ul>
-    <% end %>
+      <% if @tags.any? %>
+        <ul>
+          <h3>Tags:</h3>
+          <% @tags.each do |tag| %>
+            <li> <%= link_to tag.name, tag_path(tag) %> </li>
+          <% end %>
+        </ul>
+      <% end %>
 
+    </div>
   </div>
 </div>

@@ -1,2 +1,13 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+
+.row .post-tile {
+
+  list-style: none;
+  margin: 10px;
+}
+
+.post-text {
+  overflow: hidden;
+}

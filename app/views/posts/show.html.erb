@@ -1,9 +1,24 @@
-<h2> <%= @post.title %></h2>
+<div class="container">
+  <div class="col-md-8">
 
-<%= image_tag @post.picture.url %>
 
-<h3> <%= @post.author %> </h3>
+    <h2> <%= @post.title %></h2>
 
-<h3><%= @post.created_at.strftime("%B %d, %Y ")%></h3>
+    <%= image_tag @post.picture.url %>
+    <%= @post.user.email %>
+    <h3> <%= @post.author %> </h3>
 
-<p> <%= @post.body %></p>
+    <h3><%= @post.created_at.strftime("%B %d, %Y ")%></h3>
+
+    <p> <%= @post.body %></p>
+
+    <% if @tags.any? %>
+    <h3>Tags:</h3>
+    <ul>
+      <% @tags.each do |tag| %>
+        <li> <%= link_to tag.name, tag_path(tag) %></li>
+      <% end %>
+    </ul>
+    <% end %>
+  </div>
+</div>

@@ -11,6 +11,6 @@
 <%= render 'layouts/flash' %>
 
 <%= yield %>
-
+<%= debug(params) if Rails.env.devopement? %>
 </body>
 </html>

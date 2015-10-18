@@ -25,6 +25,7 @@ class PostsController < ApplicationController
   end
 
   def show
+    @tags = @post.tags
 
   end
 
@@ -38,6 +39,7 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:author, :title, :body, :picture)
+    params.require(:post).permit(:author, :title, :body, :picture, :tag_ids => [])
   end
+
 end

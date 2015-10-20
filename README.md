@@ -14,7 +14,8 @@ To see admin features, log in with email: "username@gmail.com", password: "passw
 * `cd` into the new directory
 * `bundle install`
 * `rake db:create`
-* `rake db:reset`
+* `rake db:migrate`
+* `rake db:seed`
 
 ## Running / Development
 
